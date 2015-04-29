@@ -1,4 +1,5 @@
 package HackaMol::X::NERF;
+ # ABSTRACT: simple implementation of natural extension reference frame 
 use Moo;
 use Math::Vector::Real;
 use Math::Trig;
