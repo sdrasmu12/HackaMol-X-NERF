@@ -1,23 +1,25 @@
 package HackaMol::X::NERF;
-use strict;
-use warnings;
+use Moo;
 use Math::Vector::Real;
 use Math::Trig;
 
 # extend system by 1 atom.
 # ABC to ABCD
 sub ext {
-  return V(0,0,0);
+  my $self = shift;
+  my $orig = V(0,0,0);
+  $orig = V(@_) if @_ == 3;
+  return $orig;
 }
 
 sub ext_a {
-  my ($a, $R,$optvec) = (shift,shift,shift);
+  my ($self,$a, $R,$optvec) = @_;
   $optvec = V(1,0,0) unless defined($optvec);
   return ($a + $R*$optvec); 
 }
 
 sub ext_ab {
-  my ($a,$b,$R,$ang) = @_;
+  my ($self,$a,$b,$R,$ang) = @_;
   $ang  = deg2rad(180-$ang);
   my ($ba, $j, $k) = ($b-$a)->rotation_base_3d;
   my $c = $b+$ba*$R;
@@ -28,7 +30,7 @@ sub ext_ab {
 }
 
 sub ext_abc {
-  my ($a,$b,$c,$R,$ang,$tors) = @_;
+  my ($self,$a,$b,$c,$R,$ang,$tors) = @_;
   $ang  = deg2rad(180-$ang);
   $tors = deg2rad($tors);
   my $cang = cos($ang);
