@@ -1,13 +1,12 @@
 package HackaMol::X::NERF;
  # ABSTRACT: Natural extension reference frame implementation for molecular building 
+
 use 5.008;
 use Moo;
 use Math::Vector::Real;
 use Math::Trig;
 
 my $orig = V(0,0,0);
-
-
 
 sub init {
   # adding the first vector
@@ -55,6 +54,31 @@ sub extend_abc {
 
 
 1;
+__END__
+
+=head1 SYNOPSIS
+
+       #Let's build a six member ring 
+       use HackaMol::X::NERF;
+       
+       push @vecs, $bld->init() ; 
+       push @vecs, $bld->extend_a(  $vecs[0]  ,   1.47              );
+       push @vecs, $bld->extend_ab( @vecs[0,1],   1.47, 109.5       );
+       push @vecs, $bld->extend_abc(@vecs[0,1,2], 1.47, 109.5,  60 );
+       push @vecs, $bld->extend_abc(@vecs[1,2,3], 1.47, 109.5, -60 );
+       push @vecs, $bld->extend_abc(@vecs[2,3,4], 1.47, 109.5,  60 );
+
+       printf ("C %10.6f %10.6f %10.6f\n", @$_ ) foreach @vecs;
+
+=head1 DESCRIPTION
+The HackaMol::X::NERF library is a quick implementation of the Natural 
+Extension Reference Frame method for building cartesian coordinates from 
+internal coordinates.  This library currently uses Moo and Math::Vector::Real 
+objects, and is thus reasonably fast.  It is experimental. In fact, there are
+no substantial tests yet! They will be added soon. 
+The API will change and expand.  Lend me a hand if you are interested!
+
+Study Z-matrices and the synopsis should be easy to understand.
 
 =method init
 
