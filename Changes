@@ -1,7 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
-  * simplify atoms_bin in AtomGroupRole
+    * adjusted API, added tests and examples 
 
 0.002      2015-05-01 
     * added docs and adjusted API
