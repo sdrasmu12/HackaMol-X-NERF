@@ -79,10 +79,9 @@ Extension Reference Frame method for building cartesian coordinates from
 internal coordinates.  This library currently uses Moo and Math::Vector::Real 
 objects, and is thus reasonably fast.  It is experimental. In fact, there are
 no substantial tests yet! They will be added soon. 
-The API will change and expand.  Currently, the class provides four methods four initializing and extending a vector space. 
-Lend me a hand if you are interested!
+The API will change and expand.  Currently, the class provides four methods four initializing and extending a vector space. Lend me a hand if you are interested!
 
-Study Z-matrices and the synopsis should be easy to understand.
+Study Z-matrices and the synopsis should be easy to understand. All angles are in degrees.
 
 =method init
 
