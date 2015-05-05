@@ -4,7 +4,7 @@ package HackaMol::X::NERF;
 use 5.008;
 use Moo;
 use Math::Vector::Real;
-use Math::Trig;
+use Math::Trig; 
 
 my $orig = V(0,0,0);
 
@@ -52,6 +52,13 @@ sub extend_abc {
   return $D;
 }
 
+sub read_file_zmat{
+  my $self  = shift ;
+  my $fzmat = shift ;
+  open( my $input_fh, "<", $fzmat ) || die "Can't open $fzmat: $!"; 
+  my $text = join('', <$input_fh>);
+  return $text;
+}
 
 1;
 __END__
