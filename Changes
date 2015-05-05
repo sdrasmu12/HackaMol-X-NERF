@@ -1,6 +1,7 @@
-Revision history for {{$dist->name}}
+0.004      2015-05-?? 
+    * Z-matrix reading
 
-{{$NEXT}}
+0.003      2015-05-04 
     * adjusted API, added tests and examples 
 
 0.002      2015-05-01 
