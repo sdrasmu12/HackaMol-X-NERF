@@ -52,35 +52,6 @@ sub extend_abc {
   return $D;
 }
 
-sub read_file_zmat{
-  my $self  = shift ;
-  my $fzmat = shift ;
-  open( my $input_fh, "<", $fzmat ) || die "Can't open $fzmat: $!"; 
-  my @lines = <$input_fh>;
-  return @lines;
-}
-
-sub zmat_proc{
-  my $self = shift ;
-  my $zmat = shift ;
-
-  my @vars = grep {  /\w+\s+\d+\.*\d+$/ } @$zmat;
-  my @atms = grep { !/\w+\s+\d+\.*\d+$/ } @$zmat;
-
-  use Data::Dumper;
-
-  print Dumper \@vars;
-#  my %vars = map{ {split} } @vars;
-#  foreach my $
-#  foreach my $line (@{$zmat}){
-#  }
-
-#  my @zmat = split('\n', $zmat);
-#  my @vars = grep {/\w+\s+\d+\.*\d+$/} @zmat;  
-
-}
-
-
 1;
 
 __END__

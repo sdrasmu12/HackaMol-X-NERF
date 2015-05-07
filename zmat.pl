@@ -1,13 +1,14 @@
 use Modern::Perl;
 use HackaMol::X::NERF;
 use Math::Vector::Real;
+use HackaMol;
 use YAML::XS;
-use Scalar::Util qw(looks_like_number);
 use List::MoreUtils qw(singleton);
 
 my $bld = HackaMol::X::NERF->new();
 
 my @zmat = <DATA>;
+chomp @zmat;
 # we have 5 types of extensions
 # A. SYM 0 x y z
 # B. SYM 
@@ -35,73 +36,62 @@ foreach my $ia (@iA){
                          coords => [ V(@xyz) ]
                       };
 }
-print Dump 'A', \%mol; 
+#print Dump 'A', \%mol; 
 
 foreach my $ib (@iB){
   my $sym = $zmat[$ib];
-  my $av  = $bld->init; 
+  my $a   = $bld->init; 
   $mol{atoms}[$ib] = {
                          symbol  =>  $sym ,
-                         coords => [ $av ]
+                         coords => [ $a ]
                       };
 }
 
-print Dump 'B', \%mol; 
+#print Dump 'B', \%mol; 
 
 foreach my $ic (@iC){
   my ($sym, $iat1, $R) = split (/ /, $zmat[$ic]);
-  my $a  = $mol{atoms}[$iat1]{coords}[0];
-  print Dump $a;
-  #my $b  = $bld->extend_a($a,$R);
-  #$mol{atoms}[$ic] = {
-  #                       symbol  =>  $sym ,
-  #                       coords => [ $b ]
-  #                    };
+  my $a  = $mol{atoms}[$iat1-1]{coords}[0];
+  my $b  = $bld->extend_a($a,$R); 
+  $mol{atoms}[$ic] = {
+                         symbol  =>  $sym ,
+                         coords => [ $b ]
+                     };
 }
-exit;
-print Dump 'C', \%mol; 
+#print Dump 'C', \%mol; 
 
 foreach my $id (@iD){
   my ($sym, $iat1, $R, $iat2, $ang) = split (/ /, $zmat[$id]);
-  my $a = $mol{atoms}[$iat1]{coords}[0];
-  my $b = $mol{atoms}[$iat2]{coords}[0];
-  my $av  = $bld->extend_ab($a,$b,$R,$ang);
+  my $a = $mol{atoms}[$iat1-1]{coords}[0];
+  my $b = $mol{atoms}[$iat2-1]{coords}[0];
+  my $c   = $bld->extend_ab($b,$a,$R,$ang);
   $mol{atoms}[$id] = {
                          symbol  =>  $sym ,
-                         coords => [ $av ]
+                         coords => [ $c ]
                       };
 }
-print Dump 'D', \%mol; 
-
+#print Dump 'D', \%mol; 
 
 foreach my $ie (@iE){
   my ($sym, $iat1, $R, $iat2, $ang, $iat3, $tor) = split (/ /, $zmat[$ie]);
-  my $a  = $mol{atoms}[$iat1]{coords}[0];
-  my $b  = $mol{atoms}[$iat2]{coords}[0];
-  my $c  = $mol{atoms}[$iat3]{coords}[0];
-  my $av = $bld->extend_abc($a,$b,$c,$R,$ang,$tor);
+  my $a  = $mol{atoms}[$iat1-1]{coords}[0];
+  my $b  = $mol{atoms}[$iat2-1]{coords}[0];
+  my $c  = $mol{atoms}[$iat3-1]{coords}[0];
+  my $d = $bld->extend_abc($c,$b,$a,$R,$ang,$tor);
   $mol{atoms}[$ie] = {
                          symbol  =>  $sym ,
-                         coords => [ $av ]
+                         coords => [ $d ]
                       };
 }
-print Dump 'E', \%mol; 
+#print Dump 'E', \%mol; 
 
+my $mol = HackaMol::Molecule->new(atoms => [ map{HackaMol::Atom->new($_)} @{$mol{atoms}}]);
+$mol->print_xyz;
 
 __DATA__
 C
-C 1 1.5
-C 2 1.5 1 109.0
-C 3 1.5 2 109.0 1 180.0
-C 4 1.5 3 109.0 2 180.0
-C 5 1.5 4 109.0 3 180.0
-C 0 10. 10. 10.
-C 7 1.5 
-C 8 1.5 7 109.0
-C 9 1.5 8 109.0 7 180.0
-C 10 1.5 9 109.0 8 180.0
-C 11 1.5 10 109.0 9 180.0
-C 0 11. 11. 11.
-C 0 12. 12. 10.
-C 0 13. 13. 10.
-C 0 14. 14. 10.
+C 1 1.50 
+C 2 1.50 1 109       
+C 3 1.50 2 109 1 180 
+C 4 1.50 3 109 2 180 
+C 5 1.50 4 109 3 180
