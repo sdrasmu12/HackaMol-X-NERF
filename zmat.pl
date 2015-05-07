@@ -14,17 +14,34 @@ my %mol;
 foreach my $iatom (0 .. $#atms){
   # check if it's cartesian
   my ($sym, $iat1, $dist, $iat2, $ang, $iat3, $tors) = split (/ /, $atms[$iatom]);
+  # 1 
   if ( defined($iat1) ){
+    # 2
     if ( looks_like_number($iat1)){ 
+      # 3
       if ( $iat1 == 0 ){
         $mol{atoms}[$iatom] = {
                               symbol  =>  $sym , 
                               coords => [ V($dist, $iat2, $ang) ]
                             };
-        print Dump \%mol;
+        print Dump $mol{atoms}[$iatom];
       }
+      else {
+        
+      }
+      # 3
     }
-  } 
+    # 2
+  }
+  # 1
+  else {
+    $mol{atoms}[$iatom] = {
+                          symbol  =>  $sym , 
+                          coords => [ V( 0, 0, 0 ) ]
+                        };
+    print Dump $mol{atoms}[$iatom];
+  }
+  # 1
   
 } 
 
