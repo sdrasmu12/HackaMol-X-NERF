@@ -25,7 +25,7 @@ my @iB = grep {$zmat[$_] =~ m/^\s*\w+\s*$/} @inA;
 my @iC = grep {$zmat[$_] =~ m/^\s*\w+(\s+\d+\s+\d+\.*\d*)\s*$/} @inA;
 my @iD = grep {$zmat[$_] =~ m/^\s*\w+(\s+\d+\s+\d+\.*\d*){2}\s*$/} @inA;
 #warn "insufficient information in type C or type D" unless (scalar(@iC) <= 1 and scalar(@iD) <= 1);
-my @iE = grep {$zmat[$_] =~ m/^\s*\w+(\s+\d+\s+\d+.*\d*){3}\s+\d+\s+-*\d+.*\d*\s*$/} @inA ;
+my @iE = grep {$zmat[$_] =~ m/^\s*\w+(\s+\d+\s+\d+.*\d*){2}\s+\d+\s+-*\d+.*\d*\s*$/} @inA ;
 
 my %mol;
 
