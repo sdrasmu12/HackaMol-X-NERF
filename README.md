@@ -1,13 +1,4 @@
 # HackaMol-X-NERF
-I am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeper
-I am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeper
-I am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeper
-I am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeper
-I am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeper
-I am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keepervI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keepervI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeperI am not my brothers keeper
+very preliminary
 
-
-
-
-very 
- preliminary
+all work and no play makes jack a dull boy
