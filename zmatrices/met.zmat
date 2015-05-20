@@ -1,0 +1,26 @@
+N 0   -1.254 -10.293   3.682
+C 0   -1.626 -9.498    4.885
+C 0   -2.391 -10.436   5.842           
+O 0   -3.582 -10.600   5.700          
+C 2 CBCA 3 CBCAC 4 CBCACO
+           
+C 5 CCCB 2 CCCBCA 3 CCCBCAC
+
+S 6 SCC 5 SCCCB 2 SCCCBCA            
+          
+C 7  CDS 6 CDSCC 5 CDSCCCB  
+ 
+     
+CBCA = 1.55
+CBCAC = 109.73
+CBCACO = 36.56
+CCCB = 1.53
+CCCBCA = 110.56
+CCCBCAC = 69.24
+SCC = 1.80
+SCCCB = 108.70
+SCCCBCA = 178.53
+CDSCC = 102.69
+CDS = 1.81
+CDSCCCB = -77.64
+
