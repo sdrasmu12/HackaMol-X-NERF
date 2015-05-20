@@ -1,7 +1,7 @@
 # HackaMol-X-NERF
 
+under active development.  Use at your own risk.
 
-I love Chemistry <3
-Demian's Research
-Fadilah Saujan Soren
+Goals:
+ 
 
